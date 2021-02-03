@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management system</title>
+	<style type="text/css">
+		*{
+			font-family: courier;
+			font-size: 30px;
+		}
+		.errorlist{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<CENTER>
+		<h1>SMS APP</h1>
+		<a href="{% url 'home' %}"> HOME </a>
+		<FORM method="POST" >
+			{%csrf_token%}
+			<table>
+				{{fm.as_table}}
+			</table>
+			<input type="submit" value="update">
+		</FORM>
+			{{msg}}
+	</CENTER>
+</body>
+</html>

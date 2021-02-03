@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management system</title>
+	<style type="text/css">
+		*{
+			font-family: courier;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<CENTER>
+		<h1>SMS app</h1>
+		<a href="{% url 'create' %}"> CREATE </a>
+		<table border="2" width="50%" style="text-align: center">
+			<tr>
+				<th>Rno</th>
+				<th>Name</th>
+				<th>Marks</th>
+				<th>Delete</th>
+				<th>Edit</th>
+			</tr>
+			{% for d in data%}
+				<tr>
+					<td>{{d.rno}}</td>
+					<td>{{d.name}}</td>
+					<td>{{d.marks}}</td>
+					<td><a href="{% url 'delete' id=d.rno%}">Delete</a></td>
+					<td><a href="{% url 'edit' id=d.rno%}">Edit</a></td>
+				</tr>
+			{% empty %}
+				<tr>
+					<td>No data Found</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</CENTER>
+</body>
+</html>
